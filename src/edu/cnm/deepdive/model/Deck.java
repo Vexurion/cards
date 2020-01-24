@@ -37,6 +37,13 @@ public class Deck {
     Collections.shuffle(cards, rng);
   }
 
+  public int remaining() {
+    return cards.size();
+  }
+  public int dealt() {
+    return  cards.size();
+  }
+
   @Override
   public String toString() {
     return cards.toString();
