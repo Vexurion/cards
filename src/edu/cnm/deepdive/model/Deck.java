@@ -1,5 +1,4 @@
 package edu.cnm.deepdive.model;
-
 import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -24,6 +23,13 @@ public class Deck {
   }
 
   public Card deal() {
+
+    // f = bool ? val1 : val2
+    // someType f;
+    // if(bool)
+    //  f = val1;
+    // else
+    //  f = val2;
     Card card = cards.isEmpty() ? null : cards.remove(0);
     if (card != null) {
       dealt.add(card);
@@ -44,13 +50,15 @@ public class Deck {
     return  cards.size();
   }
 
-  @Override
+ @Override
   public String toString() {
-    return cards.toString();
+      return cards.toString();
   }
 
   public static void main(String[] args) {
     Deck deck = new Deck();
+//    Deck deck2
+//    // deck.toString()
     System.out.println(deck);
     deck.shuffle(new SecureRandom());
     System.out.println(deck);
