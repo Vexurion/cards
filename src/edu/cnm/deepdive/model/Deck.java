@@ -7,11 +7,19 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * Encapsulates a list of {@link #cards} and {@link #dealt} cards.
+ *
+ * @author Vexur &amp; Deep Dive Coding Java + Android Cohort 9.
+ */
 public class Deck {
 
   private List<Card> cards;
   private List<Card> dealt;
 
+  /**
+   * Pulls cards from the array list, and identifies their values depending on their {@link Suit} and {@link Rank}. It then stops when every card within the parameters of the corresponding suit and rank has been identified.
+   */
   public Deck() {
     cards = new ArrayList<>();
     dealt = new LinkedList<>();
@@ -22,14 +30,12 @@ public class Deck {
     }
   }
 
+  /**
+   * Draws a {@link Card} and indexes through the contents within {@link #cards} and stops when {@link #cards} equals null.
+   * @return Returns a card.
+   */
   public Card deal() {
 
-    // f = bool ? val1 : val2
-    // someType f;
-    // if(bool)
-    //  f = val1;
-    // else
-    //  f = val2;
     Card card = cards.isEmpty() ? null : cards.remove(0);
     if (card != null) {
       dealt.add(card);
@@ -37,15 +43,26 @@ public class Deck {
     return card;
   }
 
+  /**
+   * Randomizes {@link #cards} and clears {@link #dealt} cards. It then takes the collected cards and shuffles them.
+   * @param rng Randomizes the cards
+   */
   public void shuffle(Random rng) {
     cards.addAll(dealt);
     dealt.clear();
     Collections.shuffle(cards, rng);
   }
 
+  /**
+   * Returns {@link #remaining()} {@link #cards} size.
+   */
   public int remaining() {
     return cards.size();
   }
+
+  /**
+   * returns {@link #dealt()} cards within the {@link #cards} size.
+   */
   public int dealt() {
     return  cards.size();
   }
@@ -55,12 +72,4 @@ public class Deck {
       return cards.toString();
   }
 
-  public static void main(String[] args) {
-    Deck deck = new Deck();
-//    Deck deck2
-//    // deck.toString()
-    System.out.println(deck);
-    deck.shuffle(new SecureRandom());
-    System.out.println(deck);
-  }
 }
