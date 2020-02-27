@@ -3,6 +3,7 @@ import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
@@ -80,13 +81,7 @@ public class Deck {
    if (gather) {
      gather();
    }
-   cards.sort((card1, card2) -> {
-     int result = card1.getSuit().compareTo(card2.getSuit());
-     if (result == 0) {
-       result = card1.getRank().compareTo(card2.getRank());
-     }
-     return result;
-   });
+   cards.sort(Comparator.comparing(Card::getSuit).thenComparing(Card::getRank));
   }
   //time complexity
   //space complexity of merge sort
