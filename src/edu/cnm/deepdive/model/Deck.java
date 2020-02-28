@@ -77,6 +77,11 @@ public class Deck{
       return cards.toString();
   }
 
+  /**
+   * Returns Deck of Cards in a sorted order and Card overrides Comparable to compare Rank and Suit
+   * Comparable compares objects
+   * @param gather tells whether or not cards are added to the deck before sorting.
+   */
   public void sort(boolean gather) {
    if (gather) {
      gather();
